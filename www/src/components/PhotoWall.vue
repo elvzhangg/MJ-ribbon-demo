@@ -26,7 +26,7 @@ onMounted(() => {
       hide.value = true;
       start.value = true;
       isShow.value = true;
-      imageSrc.value = `/resized_images/${event.selectObject.userData.options.simple_filename}`;
+      imageSrc.value = `/mj-ribbon-demo/resized_images/${event.selectObject.userData.options.simple_filename}`;
       msgContent.value = event.selectObject.userData.options.msg_content;
     } else {
       hide.value = false;
