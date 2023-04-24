@@ -414,7 +414,7 @@ function loadImages(data = [], onProgress = () => { }) {
 
     for (let i = data.length - 1; i >= 0; i--) {
 
-        imageLoader.load(`/resized_images/${data[i].simple_filename}`, (texture) => {
+        imageLoader.load(`./resized_images/${data[i].simple_filename}`, (texture) => {
 
             textures[i] = (texture);
 
