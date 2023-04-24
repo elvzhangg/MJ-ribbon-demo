@@ -146,6 +146,7 @@ let self;
 export class MidjourneyPhotoWall extends EventDispatcher {
 
     constructor(images) {
+        
         super()
 
         self = this;
@@ -315,8 +316,8 @@ const selectColor = new THREE.Color()
 let selectTimer;
 
 function raycasterImagesObject(mouse) {
-
     raycaster.setFromCamera(mouse, camera);
+
     let intersects = raycaster.intersectObjects(imageObject.children);
 
     if (intersects.length > 0) {
@@ -325,6 +326,8 @@ function raycasterImagesObject(mouse) {
 
             self.selectObject = intersects[0].object;
 
+            // console.log(self.selectObject);
+
             let texture = intersects[i].object.material.map;
 
             if (!!texture) {
@@ -332,6 +335,7 @@ function raycasterImagesObject(mouse) {
                 intersects[0].object.scale.lerp(selectScale, .5);
 
                 const dominantColor = getDominantColor(texture.image);
+
 
                 selectColor.setRGB(dominantColor[0] / 255, dominantColor[1] / 255, dominantColor[2] / 255)
 
@@ -348,7 +352,7 @@ function raycasterImagesObject(mouse) {
             self.selectObject = null
             self.dispatchEvent({ type: 'select', selectObject: self.selectObject });
         }, 2000)
-
+        // console.log(self.selectObject);
     }
 
 
